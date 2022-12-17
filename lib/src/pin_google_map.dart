@@ -25,7 +25,7 @@ class pinGoogleMap extends StatefulWidget {
   final String mapApi;
   final String searchBoxHintText;
   String? mapLanguage;
-  MapType? mapType=MapType.normal;
+  MapType? mapType;
   final void Function(PinData pinData) onPin;
   @override
   State<pinGoogleMap> createState() => _pinGoogleMapState();
@@ -36,6 +36,7 @@ class _pinGoogleMapState extends State<pinGoogleMap> {
   late Widget sendBtnIcon=widget.sendBtnIcon??const Icon(Icons.send);
   late Color inputColor=widget.inputColor??Colors.black;
   late Widget inputIcon=widget.inputIcon??const Icon(Icons.location_on);
+  late MapType mapType =widget.mapType??MapType.normal;
   List<Prediction> destinationPredictionList = [];
   TextEditingController search=TextEditingController();
   GoogleMapController? mapController; //contrller for Google map
@@ -56,7 +57,7 @@ class _pinGoogleMapState extends State<pinGoogleMap> {
             children:[
 
               GoogleMap( //Map widget from google_maps_flutter package
-                mapType: widget.mapType!,
+                mapType: mapType,
                 myLocationEnabled: true,
                 zoomGesturesEnabled: true, //enable Zoom in, out on map
                 initialCameraPosition: CameraPosition( //innital position in map
