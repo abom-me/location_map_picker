@@ -8,17 +8,16 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  google_maps_flutter: ^2.2.0
+  geolocator: ^9.0.1
+  geolocator_apple: ^2.2.1
+  flutter_svg: ^1.1.6
+  http: ^0.13.5
+  auto_size_text: ^3.0.0
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  google_maps_flutter:
-  geolocator:
-  geolocator_apple:
-  geoflutterfire:
-  flutter_svg:
-  http:
-  auto_size_text:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
