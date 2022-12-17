@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 
 
-// Text(text,style: TextStyle(color: color,fontSize: size,fontFamily: 'Loew-Next-Arabic-ExtraBold'),);
 class AutoSizeFont extends StatelessWidget {
   AutoSizeFont({Key? key, required this.text, required this.color, required this.size, required this.min, required this.maxLine,this.align}) : super(key: key);
   final String text;
@@ -12,8 +11,7 @@ class AutoSizeFont extends StatelessWidget {
   final double size;
   final double min;
   final int maxLine;
-
-  TextAlign? align;
+  final TextAlign? align;
   @override
   Widget build(BuildContext context) {
 

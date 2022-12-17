@@ -8,8 +8,8 @@ import 'helper/reqHelper.dart';
 import 'helper/text.dart';
 import 'helper/win.dart';
 
-class pinGoogleMap extends StatefulWidget {
-  pinGoogleMap({
+class PinPlaceMap extends StatefulWidget {
+  PinPlaceMap({
     Key? key,
      this.startLocation,
     required this.onPin,
@@ -35,13 +35,13 @@ class pinGoogleMap extends StatefulWidget {
   /// <br>
   /// بإمكانك تركه فارغا وسوف يستعمل موقع افتراضي
 
-   LatLng? startLocation;
+  final LatLng? startLocation;
   /// Here, type the text that appears below before choosing a location, you can leave it blank
   ///<br>
   ///<br>
   ///<br>
   ///هنا قم بكتابة النص الذي يظهر بالاسفل قبل اختيار الموقع, بإمكانك تركه فارغا
-  String? inputText;
+  final String? inputText;
 
   /// Here is the widget that will appear in the submit button
   ///<br>
@@ -55,20 +55,20 @@ class pinGoogleMap extends StatefulWidget {
   ///<br>
   ///بإمكانك تركه فارغا وسوف يستعمل ايقونة الارسال الافتراضية
 
-  Widget? sendBtnIcon = const Icon(Icons.send);
+  final Widget? sendBtnIcon;
   ///هنا لون النص الخاص بمربع النص ، لونه اسود بشكل افتراضي
   ///<br>
   ///<br>
   ///<br>
   ///Here is the text color of the text box, it is black by default
-  Color? textInputColor;
+  final Color? textInputColor;
 
   ///هنا الأيقونة التي تظهر بجانب مربع النص الخاص باسم الموقف، في الاسفل
   ///<br>
   ///<br>
   ///<br>
   /// Here is the icon that appears next to the text box for the position name, at the bottom
-  Widget? inputIcon;
+  final  Widget? inputIcon;
   /// This String is required and mandatory, here  type your API key from Google Cloud
   ///<br>
   ///<br>
@@ -86,7 +86,7 @@ class pinGoogleMap extends StatefulWidget {
   /// <br>
   /// <br>
   /// العبارة الافتراضية (Search For A Place)
-   String? searchBoxHintText;
+  final  String? searchBoxHintText;
   /// Here is the language of the map and the name of the places, just type the language code
   /// <br>
   /// <br>
@@ -104,13 +104,13 @@ class pinGoogleMap extends StatefulWidget {
   /// <br>
   /// <br>
   /// بامكانك تركها فارغة وسوف تكون بالانجليزية بشكل افتراضي
-  String? mapLanguage;
+  final String? mapLanguage;
   ///Here is type of the map, if it is normal, satellite, etc
   /// <br>
   /// <br>
   /// <br>
   ///هنا نوع الخريطة اذا كانت افتراضية او قمر صناعي وغيره
-  MapType? mapType;
+  final MapType? mapType;
   /// Here comes the data after selecting the location, including the name of the place and its LatLng
   /// <br>
   /// <br>
@@ -119,10 +119,10 @@ class pinGoogleMap extends StatefulWidget {
   final void Function(PinData pinData) onPin;
 
   @override
-  State<pinGoogleMap> createState() => _pinGoogleMapState();
+  State<PinPlaceMap> createState() => _PinPlaceMapState();
 }
 
-class _pinGoogleMapState extends State<pinGoogleMap> {
+class _PinPlaceMapState extends State<PinPlaceMap> {
   late LatLng startLocation = widget.startLocation ?? const LatLng(23.5838126,58.38648);
   late String mapLanguage = widget.mapLanguage ?? 'en';
   late String searchBoxHintText = widget.searchBoxHintText ?? 'Search For A Place';

@@ -2,11 +2,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PinData {
   final LatLng latLong;
-  final String location;
+  final String placeName;
 
 
 
-  PinData(this.latLong, this.location);
+  PinData(this.latLong, this.placeName);
 }
 
 class Prediction{

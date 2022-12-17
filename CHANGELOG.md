@@ -13,4 +13,8 @@
 
 ## 0.0.4
 * Fixing some Bugs
-* Adding Instructions 
+* Adding Instructions
+
+* ## 0.0.5
+* Fixing some Bugs
+* change the location to placeName in onPin 
