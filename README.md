@@ -22,7 +22,7 @@ Pubspec changes:
 
 ```
       dependencies:
-        map_location_picker: ^0.0.6
+        map_location_picker: ^0.0.7
 ```
 Sample example:
 

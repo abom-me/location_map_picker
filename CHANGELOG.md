@@ -23,3 +23,7 @@
 * Fixing some Bugs
 * change the widget from PinGoogleMap to MapPicker
 * change the package name to location_map_picker
+
+* ## 0.0.7
+* Fixing some Bugs
+

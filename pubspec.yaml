@@ -1,6 +1,6 @@
 name: location_map_picker
 description: Pick Location From The map and search about any place in google map and get the output and it's the place name and LatLng using Google map and Geolocator
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/abom-me/location_map_picker
 
 environment:
