@@ -8,8 +8,8 @@ import 'helper/reqHelper.dart';
 import 'helper/text.dart';
 import 'helper/win.dart';
 
-class PinPlaceMap extends StatefulWidget {
-  PinPlaceMap({
+class MapPicker extends StatefulWidget {
+  MapPicker({
     Key? key,
      this.startLocation,
     required this.onPin,
@@ -119,10 +119,10 @@ class PinPlaceMap extends StatefulWidget {
   final void Function(PinData pinData) onPin;
 
   @override
-  State<PinPlaceMap> createState() => _PinPlaceMapState();
+  State<MapPicker> createState() => _MapPickerState();
 }
 
-class _PinPlaceMapState extends State<PinPlaceMap> {
+class _MapPickerState extends State<MapPicker> {
   late LatLng startLocation = widget.startLocation ?? const LatLng(23.5838126,58.38648);
   late String mapLanguage = widget.mapLanguage ?? 'en';
   late String searchBoxHintText = widget.searchBoxHintText ?? 'Search For A Place';

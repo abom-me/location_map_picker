@@ -1,6 +1,6 @@
 
 import 'package:geolocator/geolocator.dart';
-import 'package:pin_google_map/src/helper/reqHelper.dart';
+import 'package:location_map_picker/src/helper/reqHelper.dart';
 
 
 class HelperMethods {

@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children:[
          ElevatedButton(onPressed:() {
            Navigator.push(context, MaterialPageRoute(builder: (builder)=>
-               PinPlaceMap(
+               MapPicker(
                onPin: (onPin){
                  print(onPin.placeName);
                  print(onPin.latLong);

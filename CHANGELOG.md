@@ -18,3 +18,8 @@
 * ## 0.0.5
 * Fixing some Bugs
 * change the location to placeName in onPin 
+
+* ## 0.0.6
+* Fixing some Bugs
+* change the widget from PinGoogleMap to MapPicker
+* change the package name to location_map_picker

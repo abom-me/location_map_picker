@@ -29,7 +29,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  pin_google_map: ^0.0.4
+  location_map_picker: ^0.0.6
   flutter:
     sdk: flutter
 

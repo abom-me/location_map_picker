@@ -1,4 +1,4 @@
-# pin_google_map:
+# location_map_picker:
 
 
 ### easy widget to pick a location on a map.
@@ -22,13 +22,13 @@ Pubspec changes:
 
 ```
       dependencies:
-        map_location_picker: ^0.0.5
+        map_location_picker: ^0.0.6
 ```
 Sample example:
 
 ```dart
-import 'package:pin_google_map/pin_google_map.dart';
-pinGoogleMap(
+import 'package:location_map_picker/location_map_picker.dart';
+MapPicker(
 apiKey: "YOUR_API_KEY",
 onPin: (PinData? result) {
 ...
