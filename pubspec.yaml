@@ -1,7 +1,7 @@
 name: pin_google_map
-description: A new Flutter package project.
+description: Pin Location From The map
 version: 0.0.1
-homepage:
+homepage: https://github.com/abom-me/pin_google_map
 
 environment:
   sdk: '>=2.18.5 <3.0.0'
