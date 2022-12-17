@@ -9,3 +9,8 @@
 
 ## 0.0.3
 *Fix Map Type Problem 
+
+
+## 0.0.4
+* Fixing some Bugs
+* Adding Instructions 
