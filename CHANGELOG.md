@@ -6,3 +6,6 @@
 
 ## 0.0.2
 *Fix null value Problem 
+
+## 0.0.3
+*Fix Map Type Problem 
