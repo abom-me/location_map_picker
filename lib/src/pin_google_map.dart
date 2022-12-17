@@ -7,36 +7,40 @@ import 'helper/helperClass.dart';
 import 'helper/reqHelper.dart';
 import 'helper/text.dart';
 import 'helper/win.dart';
-class PinGoogleMap extends StatefulWidget {
-   PinGoogleMap({Key? key, required this.startLocation, required this.onPin,this.inputText,this.mapType, required this.mapApi,
-     this.mapLanguage,
-     this.inputIcon,
-     this.inputColor,
-     this.sendBtnIcon,
-     required this.searchBoxHintText,
+class pinGoogleMap extends StatefulWidget {
+  pinGoogleMap({Key? key, required this.startLocation, required this.onPin,this.inputText,this.mapType, required this.mapApi,
+    this.mapLanguage,
+    this.inputIcon,
+    this.inputColor,
+    this.sendBtnIcon,
+    required this.searchBoxHintText,
 
-   }) : super(key: key);
+  }) : super(key: key);
 
-   final LatLng startLocation;
-   String? inputText;
-   Widget? sendBtnIcon=const Icon(Icons.send);
-   Color? inputColor=Colors.black;
-   Widget? inputIcon=const Icon(Icons.location_on);
-   final String mapApi;
-   final String searchBoxHintText;
-    String? mapLanguage='en';
-   MapType? mapType=MapType.normal;
-   final void Function(PinData pinData) onPin;
+  final LatLng startLocation;
+  String? inputText;
+  Widget? sendBtnIcon=const Icon(Icons.send);
+  Color? inputColor;
+  Widget? inputIcon;
+  final String mapApi;
+  final String searchBoxHintText;
+  String? mapLanguage;
+  MapType? mapType=MapType.normal;
+  final void Function(PinData pinData) onPin;
   @override
-  State<PinGoogleMap> createState() => _PinGoogleMapState();
+  State<pinGoogleMap> createState() => _pinGoogleMapState();
 }
 
-class _PinGoogleMapState extends State<PinGoogleMap> {
+class _pinGoogleMapState extends State<pinGoogleMap> {
+  late String mapLanguage=widget.mapLanguage??'en';
+  late Widget sendBtnIcon=widget.sendBtnIcon??const Icon(Icons.send);
+  late Color inputColor=widget.inputColor??Colors.black;
+  late Widget inputIcon=widget.inputIcon??const Icon(Icons.location_on);
   List<Prediction> destinationPredictionList = [];
   TextEditingController search=TextEditingController();
   GoogleMapController? mapController; //contrller for Google map
   CameraPosition? cameraPosition;
-  late String? locationName=widget.inputText ?? '...';
+  late String locationName=widget.inputText ?? '...';
   bool pin=false;
   Future<PinData> pinData() async {
 
@@ -110,15 +114,15 @@ class _PinGoogleMapState extends State<PinGoogleMap> {
                             // mainAxisSize: MainAxisSize.max,
 
                             children: [
-                            widget.inputIcon!,
-                              Expanded(child: AutoSizeFont(text: locationName!, color: widget.inputColor!,size: 15,min: 7,maxLine: 3,)),
+                              inputIcon!,
+                              Expanded(child: AutoSizeFont(text: locationName, color: inputColor,size: 15,min: 7,maxLine: 3,)),
                               IconButton(
                                 onPressed: (){
                                   pinData().then((value) => {
                                     widget.onPin(value),
                                   });
                                   Navigator.pop(context);
-                                }, icon: widget.sendBtnIcon!,
+                                }, icon: sendBtnIcon,
 
 
                               )],
@@ -226,7 +230,7 @@ class _PinGoogleMapState extends State<PinGoogleMap> {
     var placeNameTripTo=await HelperMethods.findCordinateAdress(
         Position(longitude: cameraPosition!.target.longitude, latitude: cameraPosition!.target.latitude, timestamp: null, accuracy: 0, altitude: 0, heading: 0, speed: 0, speedAccuracy: 0,),
         context,
-        widget.mapLanguage!,
+        mapLanguage,
         widget.mapApi);
 
     setState(() { //get place name from lat and lang

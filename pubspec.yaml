@@ -1,6 +1,6 @@
 name: pin_google_map
 description: Pin Location From The map
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/abom-me/pin_google_map
 
 environment:
