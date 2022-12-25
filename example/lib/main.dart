@@ -49,7 +49,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -68,20 +67,21 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-         ElevatedButton(onPressed:() {
-           Navigator.push(context, MaterialPageRoute(builder: (builder)=>
-               MapPicker(
-               onPin: (onPin){
-                 print(onPin.placeName);
-                 print(onPin.latLong);
-               },
-               apiKey: 'Your Api Key'
-
-           )));
-         }, child: Text("Open Map"))
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (builder) => MapPicker(
+                              onPin: (onPin) {
+                                print(onPin.placeName);
+                                print(onPin.latLong);
+                              },
+                              apiKey: 'Your Api Key')));
+                },
+                child: Text("Open Map"))
           ],
         ),
       ),

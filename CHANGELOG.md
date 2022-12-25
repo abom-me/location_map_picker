@@ -27,3 +27,7 @@
 * ## 0.0.7
 * Fixing some Bugs
 
+
+* ## 0.0.8
+* Fixing some Bugs
+
