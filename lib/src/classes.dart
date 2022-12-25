@@ -4,12 +4,10 @@ class PinData {
   final LatLng latLong;
   final String placeName;
 
-
-
   PinData(this.latLong, this.placeName);
 }
 
-class Prediction{
+class Prediction {
   String? placeId;
   String? mainText;
   String? secondaryText;
@@ -20,23 +18,17 @@ class Prediction{
     this.secondaryText,
   });
 
-  Prediction.fromJson(Map<String, dynamic> json){
+  Prediction.fromJson(Map<String, dynamic> json) {
     placeId = json['place_id'];
-    mainText= json['structured_formatting']['main_text'];
+    mainText = json['structured_formatting']['main_text'];
     secondaryText = json['structured_formatting']['secondary_text'];
   }
-
 }
 
-class Address{
+class Address {
   late String? placeName;
   late double? latitude;
   late double? longitude;
   late String? placeId;
-  Address({
-    this.placeId,
-    this.placeName,
-    this.longitude,
-    this.latitude
-  });
+  Address({this.placeId, this.placeName, this.longitude, this.latitude});
 }
