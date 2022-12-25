@@ -11,7 +11,7 @@ import 'helper/win.dart';
 class MapPicker extends StatefulWidget {
   MapPicker({
     Key? key,
-    this.startLocation,
+     this.startLocation,
     required this.onPin,
     this.inputText,
     this.mapType,
@@ -20,7 +20,7 @@ class MapPicker extends StatefulWidget {
     this.inputIcon,
     this.textInputColor,
     this.sendBtnIcon,
-    this.searchBoxHintText,
+     this.searchBoxHintText,
   }) : super(key: key);
 
   /// Here add the starting location, this location will appear directly when entering the widget
@@ -36,7 +36,6 @@ class MapPicker extends StatefulWidget {
   /// بإمكانك تركه فارغا وسوف يستعمل موقع افتراضي
 
   final LatLng? startLocation;
-
   /// Here, type the text that appears below before choosing a location, you can leave it blank
   ///<br>
   ///<br>
@@ -57,7 +56,6 @@ class MapPicker extends StatefulWidget {
   ///بإمكانك تركه فارغا وسوف يستعمل ايقونة الارسال الافتراضية
 
   final Widget? sendBtnIcon;
-
   ///هنا لون النص الخاص بمربع النص ، لونه اسود بشكل افتراضي
   ///<br>
   ///<br>
@@ -70,15 +68,13 @@ class MapPicker extends StatefulWidget {
   ///<br>
   ///<br>
   /// Here is the icon that appears next to the text box for the position name, at the bottom
-  final Widget? inputIcon;
-
+  final  Widget? inputIcon;
   /// This String is required and mandatory, here  type your API key from Google Cloud
   ///<br>
   ///<br>
   ///<br>
   ///هذا الString مطلوب و جباري، هنا  مفتاح الAPI الخاص بك من Google Cloud
   final String apiKey;
-
   /// Here is the text that will appear in the search box at the top
   /// <br>
   /// <br>
@@ -90,8 +86,7 @@ class MapPicker extends StatefulWidget {
   /// <br>
   /// <br>
   /// العبارة الافتراضية (Search For A Place)
-  final String? searchBoxHintText;
-
+  final  String? searchBoxHintText;
   /// Here is the language of the map and the name of the places, just type the language code
   /// <br>
   /// <br>
@@ -102,7 +97,7 @@ class MapPicker extends StatefulWidget {
   /// <br>
   /// <br>
   /// <br>
-  ///هنا لغة الخريطة و اسم الاماكن ، اكتب رمز اللغة فقط
+   ///هنا لغة الخريطة و اسم الاماكن ، اكتب رمز اللغة فقط
   /// <br>
   /// <br>
   /// مثلا : للعربية (ar) للانجليزية (en)
@@ -110,14 +105,12 @@ class MapPicker extends StatefulWidget {
   /// <br>
   /// بامكانك تركها فارغة وسوف تكون بالانجليزية بشكل افتراضي
   final String? mapLanguage;
-
   ///Here is type of the map, if it is normal, satellite, etc
   /// <br>
   /// <br>
   /// <br>
   ///هنا نوع الخريطة اذا كانت افتراضية او قمر صناعي وغيره
   final MapType? mapType;
-
   /// Here comes the data after selecting the location, including the name of the place and its LatLng
   /// <br>
   /// <br>
@@ -130,11 +123,9 @@ class MapPicker extends StatefulWidget {
 }
 
 class _MapPickerState extends State<MapPicker> {
-  late LatLng startLocation =
-      widget.startLocation ?? const LatLng(23.5838126, 58.38648);
+  late LatLng startLocation = widget.startLocation ?? const LatLng(23.5838126,58.38648);
   late String mapLanguage = widget.mapLanguage ?? 'en';
-  late String searchBoxHintText =
-      widget.searchBoxHintText ?? 'Search For A Place';
+  late String searchBoxHintText = widget.searchBoxHintText ?? 'Search For A Place';
   late Widget sendBtnIcon = widget.sendBtnIcon ?? const Icon(Icons.send);
   late Color inputColor = widget.textInputColor ?? Colors.black;
   late Widget inputIcon = widget.inputIcon ?? const Icon(Icons.location_on);
@@ -260,7 +251,7 @@ class _MapPickerState extends State<MapPicker> {
                     decoration: InputDecoration(
                         icon: const Icon(Icons.search),
                         border: InputBorder.none,
-                        hintText: searchBoxHintText),
+                        hintText:searchBoxHintText),
                     controller: search,
                     onChanged: (value) {
                       searchPlace(value);
@@ -270,84 +261,83 @@ class _MapPickerState extends State<MapPicker> {
               )),
           Positioned(
             // top: 150,
-            child: (destinationPredictionList.isNotEmpty &&
-                    search.text.length > 1)
-                ? Container(
-                    padding: EdgeInsets.symmetric(
-                        vertical: MediaQuery.of(context).size.height * 0.15,
-                        horizontal: 16),
-                    child: ListView.separated(
-                      padding: const EdgeInsets.all(0),
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            // print(destinationPredictionList[index].mainText.toString());
-                            getPlaceDetails(destinationPredictionList[index]
-                                .placeId as String);
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(5)),
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            width: MediaQuery.of(context).size.width,
-                            child: Column(
-                              children: <Widget>[
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
+            child:
+                (destinationPredictionList.isNotEmpty && search.text.length > 1)
+                    ? Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height * 0.15,
+                            horizontal: 16),
+                        child: ListView.separated(
+                          padding: const EdgeInsets.all(0),
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
+                                // print(destinationPredictionList[index].mainText.toString());
+                                getPlaceDetails(destinationPredictionList[index]
+                                    .placeId as String);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5)),
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                width: MediaQuery.of(context).size.width,
+                                child: Column(
                                   children: <Widget>[
-                                    const Icon(
-                                      Icons.location_on,
-                                    ),
                                     const SizedBox(
-                                      width: 12,
+                                      height: 8,
                                     ),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          Text(
-                                            destinationPredictionList[index]
-                                                .mainText as String,
-                                            overflow: TextOverflow.ellipsis,
-                                            style:
-                                                const TextStyle(fontSize: 16),
+                                    Row(
+                                      children: <Widget>[
+                                        const Icon(
+                                          Icons.location_on,
+                                        ),
+                                        const SizedBox(
+                                          width: 12,
+                                        ),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Text(
+                                                destinationPredictionList[index]
+                                                    .mainText as String,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(fontSize: 16),
+                                              ),
+                                              const SizedBox(
+                                                height: 2,
+                                              ),
+                                              Text(
+                                                destinationPredictionList[index]
+                                                    .secondaryText as String,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: const TextStyle(
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          const SizedBox(
-                                            height: 2,
-                                          ),
-                                          Text(
-                                            destinationPredictionList[index]
-                                                .secondaryText as String,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    )
+                                        )
+                                      ],
+                                    ),
+                                    const    SizedBox(
+                                      height: 8,
+                                    ),
                                   ],
                                 ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                      separatorBuilder: (BuildContext context, int index) =>
-                          const Divider(),
-                      itemCount: destinationPredictionList.length,
-                      shrinkWrap: true,
-                      physics: const ClampingScrollPhysics(),
-                    ),
-                  )
-                : Container(),
+                              ),
+                            );
+                          },
+                          separatorBuilder: (BuildContext context, int index) =>
+                              const Divider(),
+                          itemCount: destinationPredictionList.length,
+                          shrinkWrap: true,
+                          physics: const ClampingScrollPhysics(),
+                        ),
+                      )
+                    : Container(),
           )
         ]));
   }
@@ -379,16 +369,14 @@ class _MapPickerState extends State<MapPicker> {
   }
 
   void getPlaceDetails(String placeID) async {
-    Alerts.loading(
-      context,
-    );
+    Alerts.loading(context,);
 
     String url =
         'https://maps.googleapis.com/maps/api/place/details/json?placeid=$placeID&key=${widget.apiKey}';
 
     var response = await RequestHelper.getRequest(url);
 
-    Navigator.pop(context);
+     Navigator.pop(context);
 
     if (response == 'failed') {
       return;
