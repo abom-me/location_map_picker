@@ -1,6 +1,6 @@
 name: location_map_picker
 description: Pick Location From The map and search about any place in google map and get the output and it's the place name and LatLng using Google map and Geolocator
-version: 0.0.8
+version: 0.0.9+1
 homepage: https://github.com/abom-me/location_map_picker
 
 environment:
@@ -33,4 +33,5 @@ flutter:
   # To add assets to your package, add an assets section, like this:
    assets:
      - assets/
+
 

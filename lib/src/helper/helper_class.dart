@@ -1,5 +1,5 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:location_map_picker/src/helper/reqHelper.dart';
+import 'package:location_map_picker/src/helper/req_helper.dart';
 
 class HelperMethods {
   static Future findCordinateAdress(

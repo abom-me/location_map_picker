@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:location_map_picker/location_map_picker.dart';
 import 'package:pin_google_map/pin_google_map.dart';
 
 void main() {

@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'classes.dart';
-import 'helper/helperClass.dart';
-import 'helper/reqHelper.dart';
+import 'helper/helper_class.dart';
+import 'helper/req_helper.dart';
 import 'helper/text.dart';
 import 'helper/win.dart';
 
 class MapPicker extends StatefulWidget {
   MapPicker({
     Key? key,
-     this.startLocation,
+    this.startLocation,
     required this.onPin,
     this.inputText,
     this.mapType,
@@ -20,102 +20,142 @@ class MapPicker extends StatefulWidget {
     this.inputIcon,
     this.textInputColor,
     this.sendBtnIcon,
-     this.searchBoxHintText,
+    this.searchBoxHintText,
+    this.userMapType,
   }) : super(key: key);
 
-  /// Here add the starting location, this location will appear directly when entering the widget
-  ///<br>
-  ///<br>
-  /// You can leave it blank and it will use a default location
-  ///<br>
-  ///<br>
-  ///<br>
-  /// هنا قم بإضافة موقع البدء ، سوف يظهر هذا الموقع مباشرة عند الدخول للويدجت
-  /// <br>
-  /// <br>
-  /// بإمكانك تركه فارغا وسوف يستعمل موقع افتراضي
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  /// ### Here add the starting location, this location will appear directly when entering the widget
+
+  /// #### You can leave it blank and it will use a default location
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+  ///
+  ///
+  ///### هنا قم بإضافة موقع البدء ، سوف يظهر هذا الموقع مباشرة عند الدخول للويدجت
+
+  ///#### بإمكانك تركه فارغا وسوف يستعمل موقع افتراضي
 
   final LatLng? startLocation;
-  /// Here, type the text that appears below before choosing a location, you can leave it blank
-  ///<br>
-  ///<br>
-  ///<br>
-  ///هنا قم بكتابة النص الذي يظهر بالاسفل قبل اختيار الموقع, بإمكانك تركه فارغا
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here, type the text that appears below before choosing a location, you can leave it blank
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا قم بكتابة النص الذي يظهر بالاسفل قبل اختيار الموقع, بإمكانك تركه فارغا
   final String? inputText;
 
-  /// Here is the widget that will appear in the submit button
-  ///<br>
-  ///<br>
-  /// You can leave it blank and it will use the default send icon
-  ///<br>
-  ///<br>
-  ///<br>
-  ///هنا الويدجت الذي سوف يظهر في زر الارسال
-  ///<br>
-  ///<br>
-  ///بإمكانك تركه فارغا وسوف يستعمل ايقونة الارسال الافتراضية
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here is the widget that will appear in the submit button
+
+  ///#### You can leave it blank and it will use the default send icon
+  ///
+  ///
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا الويدجت الذي سوف يظهر في زر الارسال
+
+  ///#### بإمكانك تركه فارغا وسوف يستعمل ايقونة الارسال الافتراضية
 
   final Widget? sendBtnIcon;
-  ///هنا لون النص الخاص بمربع النص ، لونه اسود بشكل افتراضي
-  ///<br>
-  ///<br>
-  ///<br>
-  ///Here is the text color of the text box, it is black by default
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+  ///
+  ///### Here is the text color of the text box,
+
+  /// #### it is black by default
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا لون النص الخاص بمربع النص ،
+
+  ///#### لونه اسود بشكل افتراضي
+
   final Color? textInputColor;
 
-  ///هنا الأيقونة التي تظهر بجانب مربع النص الخاص باسم الموقف، في الاسفل
-  ///<br>
-  ///<br>
-  ///<br>
-  /// Here is the icon that appears next to the text box for the position name, at the bottom
-  final  Widget? inputIcon;
-  /// This String is required and mandatory, here  type your API key from Google Cloud
-  ///<br>
-  ///<br>
-  ///<br>
-  ///هذا الString مطلوب و جباري، هنا  مفتاح الAPI الخاص بك من Google Cloud
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here is the icon that appears next to the text box for the position name, at the bottom
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+  ///
+  ///### هنا الأيقونة التي تظهر بجانب مربع النص الخاص باسم الموقع، في الاسفل
+
+  final Widget? inputIcon;
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### This String is required and mandatory, here  type your API key from Google Cloud
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هذا الString مطلوب و جباري، هنا  مفتاح الAPI الخاص بك من Google Cloud
   final String apiKey;
-  /// Here is the text that will appear in the search box at the top
-  /// <br>
-  /// <br>
-  /// default phrase (Search For A Place)
-  ///<br>
-  ///<br>
-  ///<br>
-  /// هنا النص الذي سوف يظهر في مربع البحث في الأعلى
-  /// <br>
-  /// <br>
-  /// العبارة الافتراضية (Search For A Place)
-  final  String? searchBoxHintText;
-  /// Here is the language of the map and the name of the places, just type the language code
-  /// <br>
-  /// <br>
-  /// For example: for Arabic (ar) for English (en)
-  /// <br>
-  /// <br>
-  /// You can leave it blank and it will be in English by default
-  /// <br>
-  /// <br>
-  /// <br>
-   ///هنا لغة الخريطة و اسم الاماكن ، اكتب رمز اللغة فقط
-  /// <br>
-  /// <br>
-  /// مثلا : للعربية (ar) للانجليزية (en)
-  /// <br>
-  /// <br>
-  /// بامكانك تركها فارغة وسوف تكون بالانجليزية بشكل افتراضي
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here is the text that will appear in the search box at the top
+
+  ///#### default phrase (Search For A Place)
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا النص الذي سوف يظهر في مربع البحث في الأعلى
+
+  ///#### العبارة الافتراضية (Search For A Place)
+  final String? searchBoxHintText;
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here is the language of the map and the name of the places, just type the language code
+
+  ///#### For example: for Arabic (ar) for English (en)
+
+  ///#### You can leave it blank and it will be in English by default
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا لغة الخريطة و اسم الاماكن ، اكتب رمز اللغة فقط
+
+  ///#### مثلا : للعربية (ar) للانجليزية (en)
+
+  ///#### بامكانك تركها فارغة وسوف تكون بالانجليزية بشكل افتراضي
   final String? mapLanguage;
-  ///Here is type of the map, if it is normal, satellite, etc
-  /// <br>
-  /// <br>
-  /// <br>
-  ///هنا نوع الخريطة اذا كانت افتراضية او قمر صناعي وغيره
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here is type of the map, if it is normal, satellite, etc
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا نوع الخريطة اذا كانت افتراضية او قمر صناعي وغيره
   final MapType? mapType;
-  /// Here comes the data after selecting the location, including the name of the place and its LatLng
-  /// <br>
-  /// <br>
-  /// <br>
-  /// هنا تأتي البيانات بعد اختيار الموقع بداخله اسم المكان و الLatLng الخاص به
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here If you want show or hide map type button for the users
+  ///
+  ///#### It's true by default
+  ///
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا اذا كنت تريد أظهار زر تغيير نوع الخريطة للمستخدمين
+
+  /// #### حاليا مفعل بشكل افتراضي
+  final bool? userMapType;
+
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
+
+  ///### Here comes the data after selecting the location, including the name of the place and its LatLng
+  ///
+  ///
+  /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- AR ----</p>
+
+  ///### هنا تأتي البيانات بعد اختيار الموقع بداخله اسم المكان و الLatLng الخاص به
   final void Function(PinData pinData) onPin;
 
   @override
@@ -123,9 +163,12 @@ class MapPicker extends StatefulWidget {
 }
 
 class _MapPickerState extends State<MapPicker> {
-  late LatLng startLocation = widget.startLocation ?? const LatLng(23.5838126,58.38648);
+  late LatLng startLocation =
+      widget.startLocation ?? const LatLng(23.5838126, 58.38648);
   late String mapLanguage = widget.mapLanguage ?? 'en';
-  late String searchBoxHintText = widget.searchBoxHintText ?? 'Search For A Place';
+  late bool userMapType = widget.userMapType ?? true;
+  late String searchBoxHintText =
+      widget.searchBoxHintText ?? 'Search For A Place';
   late Widget sendBtnIcon = widget.sendBtnIcon ?? const Icon(Icons.send);
   late Color inputColor = widget.textInputColor ?? Colors.black;
   late Widget inputIcon = widget.inputIcon ?? const Icon(Icons.location_on);
@@ -188,6 +231,34 @@ class _MapPickerState extends State<MapPicker> {
                       "assets/icons/bpin.svg",
                       width: 40,
                     )),
+          Visibility(
+            visible: userMapType,
+            child: Positioned(
+                //widget to display location name
+                right: 10,
+                top: 200,
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.7),
+                      borderRadius: BorderRadius.circular(100)),
+                  child: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        mapType != MapType.hybrid
+                            ? mapType = MapType.hybrid
+                            : mapType = MapType.normal;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.layers_rounded,
+                      color: inputColor,
+                      size: 25,
+                    ),
+                  ),
+                )),
+          ),
           Positioned(
               //widget to display location name
               bottom: 100,
@@ -251,7 +322,7 @@ class _MapPickerState extends State<MapPicker> {
                     decoration: InputDecoration(
                         icon: const Icon(Icons.search),
                         border: InputBorder.none,
-                        hintText:searchBoxHintText),
+                        hintText: searchBoxHintText),
                     controller: search,
                     onChanged: (value) {
                       searchPlace(value);
@@ -261,83 +332,84 @@ class _MapPickerState extends State<MapPicker> {
               )),
           Positioned(
             // top: 150,
-            child:
-                (destinationPredictionList.isNotEmpty && search.text.length > 1)
-                    ? Container(
-                        padding: EdgeInsets.symmetric(
-                            vertical: MediaQuery.of(context).size.height * 0.15,
-                            horizontal: 16),
-                        child: ListView.separated(
-                          padding: const EdgeInsets.all(0),
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                // print(destinationPredictionList[index].mainText.toString());
-                                getPlaceDetails(destinationPredictionList[index]
-                                    .placeId as String);
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(5)),
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
-                                width: MediaQuery.of(context).size.width,
-                                child: Column(
+            child: (destinationPredictionList.isNotEmpty &&
+                    search.text.length > 1)
+                ? Container(
+                    padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.height * 0.15,
+                        horizontal: 16),
+                    child: ListView.separated(
+                      padding: const EdgeInsets.all(0),
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            // print(destinationPredictionList[index].mainText.toString());
+                            getPlaceDetails(destinationPredictionList[index]
+                                .placeId as String);
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              children: <Widget>[
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                                Row(
                                   children: <Widget>[
+                                    const Icon(
+                                      Icons.location_on,
+                                    ),
                                     const SizedBox(
-                                      height: 8,
+                                      width: 12,
                                     ),
-                                    Row(
-                                      children: <Widget>[
-                                        const Icon(
-                                          Icons.location_on,
-                                        ),
-                                        const SizedBox(
-                                          width: 12,
-                                        ),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: <Widget>[
-                                              Text(
-                                                destinationPredictionList[index]
-                                                    .mainText as String,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(fontSize: 16),
-                                              ),
-                                              const SizedBox(
-                                                height: 2,
-                                              ),
-                                              Text(
-                                                destinationPredictionList[index]
-                                                    .secondaryText as String,
-                                                overflow: TextOverflow.ellipsis,
-                                                style: const TextStyle(
-                                                  fontSize: 12,
-                                                ),
-                                              ),
-                                            ],
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            destinationPredictionList[index]
+                                                .mainText as String,
+                                            overflow: TextOverflow.ellipsis,
+                                            style:
+                                                const TextStyle(fontSize: 16),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                    const    SizedBox(
-                                      height: 8,
-                                    ),
+                                          const SizedBox(
+                                            height: 2,
+                                          ),
+                                          Text(
+                                            destinationPredictionList[index]
+                                                .secondaryText as String,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
                                   ],
                                 ),
-                              ),
-                            );
-                          },
-                          separatorBuilder: (BuildContext context, int index) =>
-                              const Divider(),
-                          itemCount: destinationPredictionList.length,
-                          shrinkWrap: true,
-                          physics: const ClampingScrollPhysics(),
-                        ),
-                      )
-                    : Container(),
+                                const SizedBox(
+                                  height: 8,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) =>
+                          const Divider(),
+                      itemCount: destinationPredictionList.length,
+                      shrinkWrap: true,
+                      physics: const ClampingScrollPhysics(),
+                    ),
+                  )
+                : Container(),
           )
         ]));
   }
@@ -369,14 +441,16 @@ class _MapPickerState extends State<MapPicker> {
   }
 
   void getPlaceDetails(String placeID) async {
-    Alerts.loading(context,);
+    Alerts.loading(
+      context,
+    );
 
     String url =
         'https://maps.googleapis.com/maps/api/place/details/json?placeid=$placeID&key=${widget.apiKey}';
 
     var response = await RequestHelper.getRequest(url);
 
-     Navigator.pop(context);
+    Navigator.pop(context);
 
     if (response == 'failed') {
       return;

@@ -7,11 +7,13 @@ class Alerts {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
           content: Container(
+            alignment: Alignment.center,
             padding: EdgeInsets.all(10),
-            width: 100,
-            height: 100,
-            child: CircularProgressIndicator(),
+            child: Container(
+                width: 60, height: 60, child: CircularProgressIndicator()),
           ),
         );
       },
