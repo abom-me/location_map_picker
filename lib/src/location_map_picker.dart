@@ -15,6 +15,7 @@ class MapPicker extends StatefulWidget {
     required this.onPin,
     this.inputText,
     this.mapType,
+    required this.pickerIcon,
     required this.apiKey,
     this.mapLanguage,
     this.inputIcon,
@@ -86,6 +87,10 @@ class MapPicker extends StatefulWidget {
   ///### هنا الأيقونة التي تظهر بجانب مربع النص الخاص باسم الموقع، في الاسفل
 
   final Widget? inputIcon;
+
+
+  /// This is the [pickerIcon] that will be used to pin the place
+  final Widget? pickerIcon;
 
   /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
 

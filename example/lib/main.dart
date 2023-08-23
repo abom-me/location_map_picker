@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:location_map_picker/location_map_picker.dart';
-import 'package:pin_google_map/pin_google_map.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,11 +76,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       context,
                       MaterialPageRoute(
                           builder: (builder) => MapPicker(
+                                primaryPickerMark: SvgPicture.asset(
+                                  "assets/icons/pin.svg",
+                                  width: 40,
+                                ),
+                                secondaryPickerMark: SvgPicture.asset(
+                                  "assets/icons/bpin.svg",
+                                  width: 40,
+                                ),
                               onPin: (onPin) {
                                 print(onPin.placeName);
                                 print(onPin.latLong);
                               },
-                              apiKey: 'Your Api Key')));
+                                apiKey: 'Your api key',
+                              )));
                 },
                 child: Text("Open Map"))
           ],
