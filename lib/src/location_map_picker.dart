@@ -12,6 +12,8 @@ class MapPicker extends StatefulWidget {
   MapPicker({
     Key? key,
     this.startLocation,
+    required this.primaryPickerMark,
+    required this.secondaryPickerMark,
     required this.onPin,
     this.inputText,
     this.mapType,
@@ -86,6 +88,12 @@ class MapPicker extends StatefulWidget {
   ///### هنا الأيقونة التي تظهر بجانب مربع النص الخاص باسم الموقع، في الاسفل
 
   final Widget? inputIcon;
+  
+  /// this [primaryPickerMark] widget is used to mark the pinned location by user
+  final Widget primaryPickerMark;
+
+  /// this [secondaryPickerMark] widget is used as a mobile indicator to pin the location
+  final Widget secondaryPickerMark;
 
   /// <p style="color:#77b4ff;font-size:16;font-weight: bold;">---- EN ----</p>
 
@@ -222,15 +230,9 @@ class _MapPickerState extends State<MapPicker> {
           ),
           Center(
               //picker image on google map
-              child: pin
-                  ? SvgPicture.asset(
-                      "assets/icons/pin.svg",
-                      width: 40,
-                    )
-                  : SvgPicture.asset(
-                      "assets/icons/bpin.svg",
-                      width: 40,
-                    )),
+              child:
+                  pin
+              ? widget.primaryPickerMark : widget.secondaryPickerMark),
           Visibility(
             visible: userMapType,
             child: Positioned(
